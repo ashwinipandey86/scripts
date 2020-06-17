@@ -111,8 +111,3 @@ if [ $(id -u) -eq 0 ]; then
         echo    "cncadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
 fi
 fi
-
-  
-
-
-
