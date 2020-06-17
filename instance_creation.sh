@@ -53,10 +53,13 @@ if [ $(id -u) -eq 0 ]; then
         else
                 useradd -m cncadmin
                 echo "Tisco@123456" | passwd --stdin cncadmin
+                cp /etc/sudoers /etc/sudoers.bkp
+                echo    "cncadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
                 useradd -m oracle
                 echo "IDfc$#6yhnNHY^" | passwd --stdin oracle
                 useradd -m tiscoadmin
                 echo "H0r!zon!@2020" | passwd --stdin tiscoadmin
+                echo "tiscoadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
 
                 [ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!"
         fi
@@ -64,6 +67,7 @@ else
         echo "Only root may add a user to the system."
         exit 2
 fi
+
 
 echo ####################################"Disabled SELINUX in /etc/selinux/config file" ###############################
 
@@ -95,21 +99,4 @@ elif [ "$current_version" -le "7" ];
            cp /etc/localtime /etc/localtime.bkp
            rm -fr /etc/localtime
            ln -s /usr/share/zoneinfo/Asia/Muscat /etc/localtime
-fi
-
-
-echo #############################" Give Sudo right for cncadmin and tiscoadmin user in /etc/sudoers file" ##################
-
-A=cncadmin
-
-if [ $(id -u) -eq 0 ]; then
-        egrep "$A" /etc/passwd >/dev/null
-        if [ $? -eq 1 ]; then
-                echo "$username is exits"
-        else
-           echo " copy below user in sudoer file"
-           cp /etc/sudoers /etc/sudoers.bkp
-        echo    "tiscoadmin     ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
-        echo    "cncadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
-fi
 fi
