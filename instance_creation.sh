@@ -6,6 +6,9 @@ printf "Current date and time %s\n" "$date"
 ip="$(ip r |grep -i "link src" | awk '{print $9}')"
 printf "Server IP Address is %s\n" "$ip"
 
+echo  ############################## "Set Root and OPC password" #################################################
+	echo "Dr@v!d_11@India" | passwd --stdin opc
+	echo "S@ch1n_10@India" | passwd --stdin root
 
 echo  ##############################"Change Below parameter in SSHD_CONFIG file" #################################
 
