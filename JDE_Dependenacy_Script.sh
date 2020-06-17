@@ -1,4 +1,3 @@
-[root@osticket ~]# cat host.sh
 #!/bin/bash
 host="$(hostname)"
 printf "server name is %s\n" "$host"
@@ -112,12 +111,6 @@ if [ $(id -u) -eq 0 ]; then
         echo    "cncadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
 fi
 fi
-
-!#binssh
-yum update
-wget gvithub.com/ashok/script_rpm.sh
-wget gvithub.com/ashok/script_mas.sh
-sh script.sh
 
   
 
