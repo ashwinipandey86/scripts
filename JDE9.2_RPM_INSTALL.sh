@@ -1,3 +1,6 @@
+#!/bin/bash
+exec 3>&1 4>&2 > rpm_output 2>&1
+
 A=JDE9.2_RPM's
 
 cat $A | while read line
