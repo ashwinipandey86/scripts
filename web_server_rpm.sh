@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Write logs to /root/weblogic.log
+exec 3>&1 4>&2
+exec 1> /root/weblogic.log 2>&1
+date
 echo "Installing RPM for Provisioning Server"
 yum install -y bind-utils
 yum install -y glibc.i686
