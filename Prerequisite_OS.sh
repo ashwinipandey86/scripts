@@ -4,7 +4,10 @@ exec 3>&1 4>&2
 exec 1> /root/configured.log 2>&1
 date
 
-#!/bin/bash
+echo  ############################## "Set Root and OPC password" #################################################
+	echo "Birla@123456" | passwd --stdin opc
+	echo "B!rL@M1R@_JDE2020" | passwd --stdin root
+
 
 echo "############################Creation of LVM Mount Point######################################"
 
