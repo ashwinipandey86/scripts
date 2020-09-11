@@ -1,4 +1,8 @@
 #!/bin/bash
+# Write logs to /root/Provisioning.log
+exec 3>&1 4>&2
+exec 1> /root/Provisioning.log 2>&1
+date
 
 echo "Installing RPM for Provisioning Server"
 yum install -y bind-utils
