@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Write logs to /root/Database.log
+exec 3>&1 4>&2
+exec 1> /root/Database.log 2>&1
+date
 echo "Installing RPM for Provisioning Server"
 yum install -y bind-utils
 yum install -y compat-libcap1.x86_64
