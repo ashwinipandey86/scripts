@@ -7,7 +7,7 @@ echo "Installing RPM for Provisioning Server"
 yum install -y bind-utils
 yum install -y compat-libcap1.x86_64
 yum install -y compat-libstdc++-33.i686
-yum install -y compatlibstdc++-33.x86_64
+yum install -y compat-libstdc++-33.x86_64
 yum install -y elfutils-libelf-devel.x86_64
 yum install -y file
 yum install -y gcc.x86_64
