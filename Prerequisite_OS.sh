@@ -152,14 +152,15 @@ fi
 
 echo "################################X11-Pkg and Telnet RPMs installation ###################################"
 
-current_value=`rpm -qa |grep -i xorg-x11-xauth | wc -l`
+current_value=`rpm -qa |egrep -i "dbus-x11|xorg-x11-xauth|xorg-x11-server-utils|telnet|xclock" | wc -l`
 
-if [ "$current_value" = "0" ];
+if [ "$current_value" = "4" ];
 then
-   echo "Xorg-x11-xauth rpm is not installed. install pkg now"
-   yum install xorg-x11-xauth.x86_64 xorg-x11-server-utils.x86_64 dbus-x11.x86_64 xclock* telnet* -y
-   echo "xorg-x11-xauth rpm is installed successfully"
+        echo "dbus-x11|xorg-x11-xauth|xorg-x11-server-utils|telnet|xclock RPMs is already installed"
 else
-   echo "Xorg-x11-xauth rpm is already installed"
+        echo "dbus-x11|xorg-x11-xauth|xorg-x11-server-utils|telnet|xclock RPMs is not installed"
+        yum install xorg-x11-xauth.x86_64 xorg-x11-server-utils.x86_64 dbus-x11.x86_64 xclock telnet -y
+        echo "All RPMs is installed now  successfully"
 fi
+
 
