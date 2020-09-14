@@ -136,7 +136,7 @@ if [ $(id -u) -eq 0 ]; then
                 cp /etc/sudoers /etc/sudoers.bkp
                 echo    "jdeadmin    ALL=(ALL)    NOPASSWD: ALL" >> /etc/sudoers
                 useradd -m oracle
-                echo "Birla@1234" | passwd --stdin oracle
+                echo "Birla#1234" | passwd --stdin oracle
                 groupadd dba
                 usermod -g oracle opc
 				usermod -a -G dba oracle
@@ -149,3 +149,17 @@ else
         echo "Only root may add a user to the system."
         exit 2
 fi
+
+echo "################################X11-Pkg and Telnet RPMs installation ###################################"
+
+current_value=`rpm -qa |grep -i xorg-x11-xauth | wc -l`
+
+if [ "$current_value" = "0" ];
+then
+   echo "Xorg-x11-xauth rpm is not installed. install pkg now"
+   yum install xorg-x11-xauth.x86_64 xorg-x11-server-utils.x86_64 dbus-x11.x86_64 xclock* telnet* -y
+   echo "xorg-x11-xauth rpm is installed successfully"
+else
+   echo "Xorg-x11-xauth rpm is already installed"
+fi
+
