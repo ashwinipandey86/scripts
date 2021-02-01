@@ -81,6 +81,7 @@ then
      iptables -L
      iptables -F
      systemctl stop firewalld
+     systemctl disable firewalld
 else
      echo "Firewall is Already Stopped"
 fi
