@@ -18,6 +18,8 @@ yum install -y zlib-devel.x86_64
 yum install -y zlib-devel.i686
 yum install -y zlib.i686
 yum install -y zlib.x86_64
+yum install -y libstdc++-devel
+yum install -y libaio-devel
 
 
 echo "RPM's Install Successfully"
