@@ -3,7 +3,7 @@
 exec 3>&1 4>&2
 exec 1> /root/weblogic.log 2>&1
 date
-echo "Installing RPM for Provisioning Server"
+echo "Installing RPM for Web Server"
 yum install -y bind-utils
 yum install -y glibc.i686
 yum install -y glibc.x86_64
