@@ -142,9 +142,9 @@ else
    yum install s3fs-fuse -y
    echo 3659090d53a73be2ffb4b63f525c6725f45aeaa6:DwiViRnF0lofLFCMSkRzvIR8QWZGw4yKfMMU240MKmc= > ${HOME}/.passwd-s3fs
    chmod 600 .passwd-s3fs
-   mkdir Interface_buck
-   chmod 777 Interface_buck/
-   s3fs interface Interface_buck -o passwd_file=${HOME}/.passwd-s3fs -o  url=https://bmucg4wyq6lz.compat.objectstorage.ap-mumbai-1.oraclecloud.com/ -o nomultipart -o use_path_request_style
+   mkdir /interface
+   chmod 777 /interface
+   s3fs interface /interface -o passwd_file=${HOME}/.passwd-s3fs -o  url=https://bmucg4wyq6lz.compat.objectstorage.ap-mumbai-1.oraclecloud.com/ -o nomultipart -o use_path_request_style
 fi
 
  
