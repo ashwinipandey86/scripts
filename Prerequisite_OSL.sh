@@ -5,8 +5,8 @@ exec 1> /root/configured.log 2>&1
 date
 
 echo  ############################## "Set Root and OPC password" #################################################
-	echo "Birla@123456" | passwd --stdin opc
-	echo "B!rL@M1R@_JDE2020" | passwd --stdin root
+	echo "P2ssw0rd@2020" | passwd --stdin opc
+	echo "P@ssw0rd@2021" | passwd --stdin root
 
 
 
